@@ -20,7 +20,16 @@ A simple factorio init script for linux
 
  ```bash
  $ cd '/opt'
+ $ wget https://www.factorio.com/get-download/0.15.37/headless/linux64
+ $ mv linux64 factorio_headless_x64_0.15.37.tar.xz
+ $ tar -xvf factorio_headless_x64_0.15.37.tar.xz
  $ git clone https://github.com/Bisa/factorio-init.git
+ $ cp /opt/factorio-init/config.example /opt/factorio-init/config
+ $ cp /opt/factorio/data/server-settings.example.json /opt/factorio/data/server-settings.json
+ $ chown factorio:factorio factorio factorio-init -R
+ $ useradd -M -r -s /bin/false -c "Factorio" factorio
+ $ sudo -u factorio /opt/factorio/bin/x64/factorio --create /opt/factorio/saves/my_savegame
+ $ /opt/factorio-init/factorio invocation
  ```
 - Rename config.example to config and modify the values within according to your setup.
 
